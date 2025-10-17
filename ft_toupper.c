@@ -6,13 +6,13 @@
 /*   By: abouzkra <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 11:40:05 by abouzkra          #+#    #+#             */
-/*   Updated: 2025/10/14 11:41:27 by abouzkra         ###   ########.fr       */
+/*   Updated: 2025/10/15 20:28:48 by abouzkra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_toupper(int c)
 {
-	if (c <= 'a' && c >= 'z')
-		return (c - 'a' + 'A');
+	if (c >= 'a' && c <= 'z')
+		return (c - 32);
 	return (c);
 }

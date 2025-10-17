@@ -6,7 +6,7 @@
 #    By: abouzkra <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/13 13:54:56 by abouzkra          #+#    #+#              #
-#    Updated: 2025/10/15 18:49:32 by abouzkra         ###   ########.fr        #
+#    Updated: 2025/10/15 20:00:10 by abouzkra         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,4 +79,4 @@ fclean: clean
 re: fclean all
 
 test: main.c re
-	$(CC) $(CFLAGS) $< -L/home/abouzkra/Desktop/libft -lft && ./a.out
+	$(CC) -lbsd $< -L/home/abouzkra/Desktop/libft -lft && ./a.out
