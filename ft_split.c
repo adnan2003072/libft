@@ -6,90 +6,97 @@
 /*   By: abouzkra <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 12:01:42 by abouzkra          #+#    #+#             */
-/*   Updated: 2025/10/15 15:29:48 by abouzkra         ###   ########.fr       */
+/*   Updated: 2025/10/20 11:28:13 by abouzkra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	is_delimiter(char c1, char c2)
+static size_t	strs_count(char const *s, char c);
+static char		**empty_arr(void);
+static void		free_all(char **res);
+static int		extract_words(char const *s, char c, char **res);
+
+char	**ft_split(char const *s, char c)
 {
-	return (c1 == c2);
+	char	**res;
+
+	if (!s)
+		return (NULL);
+	if (s[0] == '\0')
+		return (empty_arr());
+	res = (char **)malloc(sizeof(char *) * (strs_count(s, c) + 1));
+	if (!res)
+		return (NULL);
+	if (extract_words(s, c, res))
+	{
+		free_all(res);
+		return (NULL);
+	}
+	return (res);
 }
 
-static	void	skip_delimiters(char const *s, char c, size_t *i)
-{
-	while (s[*i] && is_delimiter(s[*i], c))
-		(*i)++;
-}
-
-static size_t	num_strs(char const *s, char c)
+static size_t	strs_count(char const *s, char c)
 {
 	size_t	n;
 	size_t	i;
 
-	i = 0;
 	n = 0;
+	i = 0;
 	while (s[i])
 	{
-		skip_delimiters(s, c, &i);
+		while (s[i] && s[i] == c)
+			i++;
+		if (s[i] == '\0')
+			break ;
 		n++;
-		while (s[i] && !is_delimiter(s[i], c))
+		while (s[i] && s[i] != c)
 			i++;
 	}
 	return (n);
 }
 
-static char	**allocate_memory(char const *s, char c)
+static int	extract_words(char const *s, char c, char **res)
 {
-	char	**res;
-	size_t	current;
-	size_t	i;
 	size_t	len;
 
-	res = (char **)malloc(sizeof(char *) * num_strs(s, c));
-	current = 0;
-	i = 0;
-	while (s[i])
+	while (*s)
 	{
-		skip_delimiters(s, c, &i);
+		while (*s && *s == c)
+			s++;
+		if (*s == '\0')
+			break ;
 		len = 0;
-		while (s[i] && !is_delimiter(s[i], c))
-		{
-			i++;
+		while (s[len] && s[len] != c)
 			len++;
-		}
-		res[current] = (char *)malloc(len + 1);
-		current++;
+		*res = ft_substr(s, 0, len);
+		if (!*res)
+			return (1);
+		s += len;
+		res++;
 	}
+	*res = NULL;
+	return (0);
+}
+
+static char	**empty_arr(void)
+{
+	char	**res;
+
+	res = (char **)malloc(sizeof(char *));
+	*res = NULL;
 	return (res);
 }
 
-char	**ft_split(char const *s, char c)
+static void	free_all(char **res)
 {
-	char	**res;
 	char	**tmp;
-	size_t	i;
-	size_t	j;
 
-	if (!s)
-		return (0);
-	res = allocate_memory(s, c);
 	tmp = res;
-	i = 0;
-	while (*tmp && s[i])
+	while (*tmp)
 	{
-		skip_delimiters(s, c, &i);
-		j = 0;
-		while (s[i] && !is_delimiter(s[i], c))
-		{
-			(*tmp)[j] = s[i];
-			i++;
-			j++;
-		}
-		(*tmp)[j] = '\0';
-		tmp++;
+		free(*tmp);
+		res++;
 	}
-	*tmp = (void *)0;
-	return (res);
+	free(res);
 }

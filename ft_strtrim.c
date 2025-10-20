@@ -6,7 +6,7 @@
 /*   By: abouzkra <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 17:08:42 by abouzkra          #+#    #+#             */
-/*   Updated: 2025/10/15 12:11:16 by abouzkra         ###   ########.fr       */
+/*   Updated: 2025/10/20 09:44:10 by abouzkra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,10 @@ char	*ft_strtrim(const char *s1, const char *set)
 	unsigned int	start;
 	unsigned int	end;
 
-	if (!s1 || !set)
+	if (!s1)
 		return (0);
+	if (s1[0] == '\0')
+		return (ft_strdup(""));
 	start = 0;
 	end = ft_strlen(s1) - 1;
 	while (s1[start] && contains(set, s1[start]))
@@ -30,7 +32,9 @@ char	*ft_strtrim(const char *s1, const char *set)
 		return (ft_strdup(""));
 	while (end >= start && contains(set, s1[end]))
 		end--;
-	res = (char *)malloc(end - start + 1);
+	res = (char *)malloc(end - start + 2);
+	if (!res)
+		return (0);
 	ft_strlcpy(res, s1 + start, end - start + 2);
 	return (res);
 }

@@ -6,7 +6,7 @@
 /*   By: abouzkra <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 11:11:08 by abouzkra          #+#    #+#             */
-/*   Updated: 2025/10/14 11:51:24 by abouzkra         ###   ########.fr       */
+/*   Updated: 2025/10/20 09:03:52 by abouzkra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	size_t	i;
 	size_t	n;
 
-	if (!dst || !src)
-		return (0);
 	n = ft_strlen(src);
 	i = 0;
 	if (size > 0)

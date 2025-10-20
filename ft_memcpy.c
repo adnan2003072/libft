@@ -6,7 +6,7 @@
 /*   By: abouzkra <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 10:02:16 by abouzkra          #+#    #+#             */
-/*   Updated: 2025/10/15 17:17:53 by abouzkra         ###   ########.fr       */
+/*   Updated: 2025/10/20 08:44:23 by abouzkra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	t_uchar			*d;
 	const t_uchar	*s;
 
-	if (!dest || !src)
-		return (0);
+	if (!dest && !src)
+		return (NULL);
 	d = dest;
 	s = src;
 	while (n--)

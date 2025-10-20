@@ -6,51 +6,54 @@
 /*   By: abouzkra <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 14:52:06 by abouzkra          #+#    #+#             */
-/*   Updated: 2025/10/15 15:55:15 by abouzkra         ###   ########.fr       */
+/*   Updated: 2025/10/20 12:23:13 by abouzkra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	nbr_len(long n)
-{
-	int		i;
-
-	i = 0;
-	if (n < 0)
-	{
-		n *= -1;
-		i++;
-	}
-	while (n > 0)
-	{
-		n /= 10;
-		i++;
-	}
-	return (i);
-}
+static int	nbr_len(int n);
 
 char	*ft_itoa(int n)
 {
-	char	*str;
-	long	num;
-	int		i;
+	char			*res;
+	int				len;
+	unsigned int	tmp;
 
-	num = n;
-	i = nbr_len(num);
-	str = (char *)malloc(sizeof(char) * (i + 1));
-	if (!str)
+	len = nbr_len(n);
+	res = (char *)malloc(len + 1);
+	if (!res)
 		return (NULL);
-	str[i] = '\0';
+	res[len] = '\0';
+	tmp = n;
 	if (n < 0)
 	{
-		str[0] = '-';
-		num *= -1;
+		res[0] = '-';
+		tmp = (unsigned int)(-n);
 	}
-	while (--i >= 0 && str[i] != '-')
+	else
+		tmp = (unsigned int)n;
+	if (tmp == 0)
+		res[0] = '0';
+	while (tmp > 0)
 	{
-		str[i] = (num % 10) + '0';
-		num /= 10;
+		res[--len] = tmp % 10 + '0';
+		tmp /= 10;
 	}
-	return (str);
+	return (res);
+}
+
+static int	nbr_len(int n)
+{
+	int	i;
+
+	i = 0;
+	if (n <= 0)
+		i++;
+	while (n)
+	{
+		i++;
+		n /= 10;
+	}
+	return (i);
 }

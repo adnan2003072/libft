@@ -6,7 +6,7 @@
 /*   By: abouzkra <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 09:52:42 by abouzkra          #+#    #+#             */
-/*   Updated: 2025/10/15 11:45:45 by abouzkra         ###   ########.fr       */
+/*   Updated: 2025/10/19 10:53:17 by abouzkra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ void	*ft_memset(void *s, int c, size_t n)
 	t_uchar	*s1;
 	size_t	i;
 
-	if (!s)
-		return (0);
 	s1 = s;
 	i = 0;
 	while (i < n)

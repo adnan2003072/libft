@@ -6,13 +6,13 @@
 /*   By: abouzkra <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 11:41:45 by abouzkra          #+#    #+#             */
-/*   Updated: 2025/10/14 11:42:03 by abouzkra         ###   ########.fr       */
+/*   Updated: 2025/10/19 11:40:37 by abouzkra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_tolower(int c)
 {
-	if (c <= 'A' && c >= 'X')
-		return (c - 'A' + 'a');
+	if (c >= 'A' && c <= 'Z')
+		return (c + 32);
 	return (c);
 }

@@ -6,7 +6,7 @@
 /*   By: abouzkra <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 10:04:57 by abouzkra          #+#    #+#             */
-/*   Updated: 2025/10/14 10:38:27 by abouzkra         ###   ########.fr       */
+/*   Updated: 2025/10/20 08:44:06 by abouzkra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	const t_uchar	*s;
 	t_uchar			*d;
 
-	if (!dest || !src)
-		return (0);
+	if (!dest && !src)
+		return (NULL);
 	s = src;
 	d = dest;
 	if (d <= s)
