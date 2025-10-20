@@ -1,12 +1,12 @@
 # **************************************************************************** #
-#                                                                              #
+#                                                                             #
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: abouzkra <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/13 13:54:56 by abouzkra          #+#    #+#              #
-#    Updated: 2025/10/19 10:51:50 by abouzkra         ###   ########.fr        #
+#    Updated: 2025/10/20 14:52:16 by abouzkra         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,9 +67,6 @@ $(NAME): $(OBJS)
 	ar rc $@ $^
 	ranlib $@
 
-so: $(OBJS)
-	$(CC) $(CLFLAGS) -shared -o libft.so $^
-
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
@@ -80,6 +77,3 @@ fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
-
-test: main.c re
-	$(CC) $< -L/home/abouzkra/Desktop/libft -lft -lbsd && ./a.out

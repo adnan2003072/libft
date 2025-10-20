@@ -6,7 +6,7 @@
 /*   By: abouzkra <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 14:00:47 by abouzkra          #+#    #+#             */
-/*   Updated: 2025/10/15 19:39:07 by abouzkra         ###   ########.fr       */
+/*   Updated: 2025/10/20 14:47:34 by abouzkra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# include <string.h>
-# include <stdio.h>
 
 typedef unsigned char	t_uchar;
 typedef struct s_list
