@@ -6,7 +6,7 @@
 /*   By: abouzkra <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 14:52:06 by abouzkra          #+#    #+#             */
-/*   Updated: 2025/10/20 12:23:13 by abouzkra         ###   ########.fr       */
+/*   Updated: 2025/10/21 10:06:17 by abouzkra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,12 @@ char	*ft_itoa(int n)
 	if (!res)
 		return (NULL);
 	res[len] = '\0';
-	tmp = n;
+	tmp = (unsigned int)n;
 	if (n < 0)
 	{
 		res[0] = '-';
 		tmp = (unsigned int)(-n);
 	}
-	else
-		tmp = (unsigned int)n;
 	if (tmp == 0)
 		res[0] = '0';
 	while (tmp > 0)
