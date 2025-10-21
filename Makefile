@@ -6,14 +6,14 @@
 #    By: abouzkra <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/13 13:54:56 by abouzkra          #+#    #+#              #
-#    Updated: 2025/10/21 10:07:44 by abouzkra         ###   ########.fr        #
+#    Updated: 2025/10/21 18:57:29 by abouzkra         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-SRCS = ft_isalpha.c       \
+MSRCS = ft_isalpha.c    \
 	   ft_isdigit.c       \
 	   ft_isalnum.c       \
 	   ft_isascii.c       \
@@ -46,8 +46,9 @@ SRCS = ft_isalpha.c       \
 	   ft_putchar_fd.c    \
 	   ft_putstr_fd.c     \
 	   ft_putendl_fd.c    \
-	   ft_putnbr_fd.c     \
-	   ft_lstnew.c        \
+	   ft_putnbr_fd.c     
+
+BSRCS = ft_lstnew.c     \
 	   ft_lstadd_front.c  \
 	   ft_lstsize.c       \
 	   ft_lstlast.c       \
@@ -56,22 +57,25 @@ SRCS = ft_isalpha.c       \
 	   ft_lstdelone.c     \
 	   ft_lstclear.c      \
 	   ft_lstiter.c       \
-	   ft_lstmap.c        \
+	   ft_lstmap.c        
 
-OBJS = $(SRCS:.c=.o)
+MOBJS = $(MSRCS:.c=.o)
+BOBJS = $(BSRCS:.c=.o)
 RM = rm -f
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(MOBJS)
 	ar rc $@ $^
-	ranlib $@
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
+bonus: $(BOBJS)
+	ar rc $(NAME) $^
+
 clean:
-	$(RM) $(OBJS)
+	$(RM) $(MOBJS) $(BOBJS)
 
 fclean: clean
 	$(RM) $(NAME)

@@ -6,7 +6,7 @@
 /*   By: abouzkra <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 12:01:42 by abouzkra          #+#    #+#             */
-/*   Updated: 2025/10/20 11:28:13 by abouzkra         ###   ########.fr       */
+/*   Updated: 2025/10/21 18:51:28 by abouzkra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,8 @@ static char	**empty_arr(void)
 	char	**res;
 
 	res = (char **)malloc(sizeof(char *));
+	if (!res)
+		return (NULL);
 	*res = NULL;
 	return (res);
 }
@@ -96,7 +98,7 @@ static void	free_all(char **res)
 	while (*tmp)
 	{
 		free(*tmp);
-		res++;
+		tmp++;
 	}
 	free(res);
 }
