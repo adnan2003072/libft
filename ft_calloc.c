@@ -6,7 +6,7 @@
 /*   By: abouzkra <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 15:22:06 by abouzkra          #+#    #+#             */
-/*   Updated: 2025/10/19 09:35:14 by abouzkra         ###   ########.fr       */
+/*   Updated: 2025/10/24 11:11:06 by abouzkra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,11 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	size_t	size_max;
 
 	if (nmemb == 0 || size == 0)
-		return (malloc(0));
+	{
+		res = malloc(1);
+		res[0] = '\0';
+		return ((void *)res);
+	}
 	res = (char *)malloc(size * nmemb);
 	size_max = ~(0);
 	if ((unsigned long)size * nmemb > size_max
