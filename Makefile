@@ -6,7 +6,7 @@
 #    By: abouzkra <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/13 13:54:56 by abouzkra          #+#    #+#              #
-#    Updated: 2025/10/21 18:57:29 by abouzkra         ###   ########.fr        #
+#    Updated: 2025/10/24 14:18:44 by abouzkra         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,7 +65,7 @@ RM = rm -f
 
 all: $(NAME)
 
-$(NAME): $(MOBJS)
+$(NAME): $(MOBJS) libft.h
 	ar rc $@ $^
 
 %.o: %.c
