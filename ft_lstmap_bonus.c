@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abouzkra <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 18:17:42 by abouzkra          #+#    #+#             */
-/*   Updated: 2025/10/21 18:45:55 by abouzkra         ###   ########.fr       */
+/*   Updated: 2025/10/24 22:23:35 by abouzkra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*node;
 	void	*new_content;
 
-	new_lst = NULL;
 	if (!lst || !f || !del)
 		return (NULL);
+	new_lst = NULL;
 	while (lst)
 	{
 		new_content = f(lst->content);
