@@ -6,7 +6,7 @@
 #    By: abouzkra <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/13 13:54:56 by abouzkra          #+#    #+#              #
-#    Updated: 2025/10/24 21:48:48 by abouzkra         ###   ########.fr        #
+#    Updated: 2025/10/24 22:09:49 by abouzkra         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,7 @@ MSRCS = ft_isalpha.c    \
 	   ft_putendl_fd.c    \
 	   ft_putnbr_fd.c     
 
-BSRCS = ft_lstnew_bonus.c     \
+BSRCS = ft_lstnew_bonus.c       \
 	   ft_lstadd_front_bonus.c  \
 	   ft_lstsize_bonus.c       \
 	   ft_lstlast_bonus.c       \
